@@ -7,7 +7,7 @@ public class ClienteJuego {
     public static void main(String[] args) {
 
         String host = "localhost";
-        int puerto = 0;
+        int puerto = 9876;
 
         //Variable de control para el bucle While
         boolean conectado = true;
