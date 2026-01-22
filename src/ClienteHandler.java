@@ -1,13 +1,26 @@
 import java.io.*;
 import java.net.*;
+import java.util.List;
+import java.util.Random;
 
 
 public class ClienteHandler implements Runnable {
     private final Socket socket;
+    private Random generador;
+    Juego juego;
+    List<Integer> secuencia = juego.getSecuencia();
 
     public ClienteHandler(Socket socket) {
        this.socket = socket;
    }
+
+    // Método que reutilizarás en cada ronda para añadir dificultad
+    private void agregarNuevoNumero() {
+        // Genera un número del 1 al 100
+        int nuevoNumero = generador.nextInt(100) + 1;
+        // Lo guarda en la lista
+        secuencia.add(nuevoNumero);
+    }
 
     @Override
     public void run() {
@@ -27,7 +40,6 @@ public class ClienteHandler implements Runnable {
                 try {
 
 
-
                 } catch (NumberFormatException e) {
                     out.println("ERROR: Los argumentos deben ser números enteros.");
                 }
@@ -38,4 +50,6 @@ public class ClienteHandler implements Runnable {
             System.out.println("Cliente finalizado: " + socket.getInetAddress());
         }
     }
+
+
 }

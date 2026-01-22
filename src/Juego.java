@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Juego {
-    List<Integer> secuencia;
-    List<Integer> respuesta;
+    List<Integer> secuencia = new ArrayList<Integer>(8, 3, 5);
+    String respuesta;
     Boolean pasaNivel;
     String mensaje;
 
@@ -10,9 +11,11 @@ public class Juego {
     public Juego() {
     }
 
-    public Juego(List<Integer> secuencia, String mensaje) {
+    public Juego(List<Integer> secuencia, String mensaje, String respuesta, Boolean pasaNivel) {
         this.secuencia = secuencia;
         this.mensaje = mensaje;
+        this.respuesta = respuesta;
+        this.pasaNivel = pasaNivel;
     }
 
     public List<Integer> getSecuencia() {
@@ -23,11 +26,11 @@ public class Juego {
         this.secuencia = secuencia;
     }
 
-    public List<Integer> getRespuesta() {
+    public String getRespuesta() {
         return respuesta;
     }
 
-    public void setRespuesta(List<Integer> respuesta) {
+    public void setRespuesta(String respuesta) {
         this.respuesta = respuesta;
     }
 
