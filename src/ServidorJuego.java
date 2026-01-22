@@ -6,7 +6,6 @@ import java.net.SocketTimeoutException;
 
 public class ServidorJuego {
      private static volatile boolean servidorActivo = true;
-     private static int contadorClientes = 0;
 
      public static void main(String[] args) {
          int puerto = 9876;
@@ -44,15 +43,12 @@ public class ServidorJuego {
 
             while (servidorActivo) {
                 try {
-                    Socket conexionCliente = socketEscucha.accept();
-                    contadorClientes++;
+                    Socket cliente = socketEscucha.accept();
+                    System.out.println("NUEVO CLIENTE: " + cliente.getInetAddress());
 
-                    // TODO: Crear nuevo hilo para este cliente
-                    ClienteHandler manejador = new ClienteHandler(conexionCliente);
-
-
+                    new Thread(new ClienteHandler(cliente)).start();
                 } catch (SocketTimeoutException e) {
-                    // Normal: revisar si servidorActivo sigue true
+                    System.out.print(".");
                 }
             }
 

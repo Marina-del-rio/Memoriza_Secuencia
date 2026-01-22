@@ -4,7 +4,10 @@ import java.net.*;
 
 public class ClienteHandler implements Runnable {
     private final Socket socket;
-    public ClienteHandler(Socket socket) {this.socket = socket;}
+
+    public ClienteHandler(Socket socket) {
+       this.socket = socket;
+   }
 
     @Override
     public void run() {

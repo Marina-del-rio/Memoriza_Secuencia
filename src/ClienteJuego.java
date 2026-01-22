@@ -28,7 +28,7 @@ public class ClienteJuego {
 
             // PASO 2: Bucle de comunicación controlada
             while (conectado) {
-                System.out.print("> ");
+
 
             }
 
