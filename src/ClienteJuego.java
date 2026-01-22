@@ -21,36 +21,15 @@ public class ClienteJuego {
 
              String mensajeBienvenida = in.readLine();
              System.out.println("SERVIDOR DICE: " + mensajeBienvenida);
-             System.out.println(" ");
+
+            System.out.println("INSTRUCCIONES DEL JUEGO: memoriza la secuencia de números, en cada ronda" +
+                    "se sumará un número a la cifra anterior, además de limpiar la terminal" +
+                    "¡¡SUERTE!!");
 
             // PASO 2: Bucle de comunicación controlada
             while (conectado) {
                 System.out.print("> ");
 
-                // a. Leer comando del usuario
-                String comando = teclado.nextLine();
-
-                // b. Enviar al servidor
-                out.println(comando);
-
-                // c. Recibir respuesta del servidor (Bloqueante)
-                // Esperamos aquí hasta que el servidor calcule y responda
-                String respuesta = in.readLine();
-
-
-                // Validación de seguridad: si el servidor se cae, la respuesta será null
-                if (respuesta == null) {
-                    System.out.println("El servidor cerró la conexión.");
-                    conectado = false;
-                } else {
-                    System.out.println("SERVIDOR: " + respuesta);
-                }
-
-                // d. Comprobar si debemos salir
-                // Si enviamos "SALIR", el servidor nos contestó "Adios!" y ahora cerramos nosotros.
-                if (comando.equalsIgnoreCase("SALIR")) {
-                    conectado = false;
-                }
             }
 
         } catch (ConnectException e) {

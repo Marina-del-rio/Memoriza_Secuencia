@@ -8,7 +8,7 @@ public class ServidorJuego {
      private static volatile boolean servidorActivo = true;
      private static int contadorClientes = 0;
 
-     public static void servidorJuego(String[] args) {
+     public static void main(String[] args) {
          int puerto = 9876;
 
          if(args.length > 0 ){
@@ -48,7 +48,8 @@ public class ServidorJuego {
                     contadorClientes++;
 
                     // TODO: Crear nuevo hilo para este cliente
-                    ClienteHandler manejador;
+                    ClienteHandler manejador = new ClienteHandler(conexionCliente);
+
 
                 } catch (SocketTimeoutException e) {
                     // Normal: revisar si servidorActivo sigue true
