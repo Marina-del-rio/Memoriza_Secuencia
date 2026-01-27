@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Juego {
-    List<Integer> secuencia = new ArrayList<Integer>(8, 3, 5);
+    List<Integer> secuencia = new ArrayList<Integer>(Arrays.asList(8, 3, 5));
     String respuesta;
     Boolean pasaNivel;
     String mensaje;
